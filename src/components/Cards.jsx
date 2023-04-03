@@ -2,7 +2,7 @@ import Card from "./Card";
 
 export default function Cards({ characters }) {
   return (
-    <div>
+    <div id="Cards">
       {characters.map((character) => {
         return (
           <Card

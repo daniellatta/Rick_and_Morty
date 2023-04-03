@@ -1,3 +1,22 @@
-.App {
-   text-align: center;
+.searchBarContainer{
+  text-align: right;
+}
+
+#Cards {
+  display: flex;
+  margin-top: 100px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#Card {
+  font-family: monospace;
+  font-size: 15px;
+  text-align: center;
+  line-height: 8px;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
+}
+
+#Card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
