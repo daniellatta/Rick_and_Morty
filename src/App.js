@@ -2,33 +2,34 @@ import { useState } from "react";
 import "./App.css";
 import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav";
+import axios from "axios";
 
 function App() {
-  const example = {
-    id: 1,
-    name: "Rick Sanchez",
-    status: "Alive",
-    species: "Human",
-    gender: "Male",
-    origin: {
-      name: "Earth (C-137)",
-      url: "https://rickandmortyapi.com/api/location/1",
-    },
-    image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-  };
-
   const [characters, setCharacters] = useState([]);
 
-  const onSearch = () => {
-    setCharacters(characters.push(example))
+  const onSearch = (id) => {
+    if (id in characters.keys) return;
+    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+      ({ data }) => {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          window.alert("¡No hay personajes con este ID!");
+        }
+      }
+    );
+  };
 
-		console.log(characters);
+  const onClose = (id) => {
+    setCharacters(
+      characters.filter((character) => character.id !== parseInt(id, 10))
+    );
   };
 
   return (
     <div className="App">
       <Nav onSearch={onSearch} />
-      <Cards characters={characters} />
+      <Cards characters={characters} onClose={onClose} />
     </div>
   );
 }

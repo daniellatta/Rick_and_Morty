@@ -1,4 +1,5 @@
 export default function Card({
+  id,
   name,
   status,
   species,
@@ -8,8 +9,8 @@ export default function Card({
   onClose,
 }) {
   return (
-    <div id="Card">
-      <button onClick={onClose}>X</button>
+    <div className="Card">
+      <button onClick={() => {onClose(id)}}>X</button>
       <h3>{name}</h3>
       <h3>{status}</h3>
       <h3>{species}</h3>

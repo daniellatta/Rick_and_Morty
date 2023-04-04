@@ -1,6 +1,6 @@
 import SearchBar from "./SearchBar";
 
-const Nav = ({onSearch}) => {
+const Nav = ({ onSearch }) => {
   return (
     <div className="searchBarContainer">
       <SearchBar onSearch={onSearch} />
