@@ -1,11 +1,41 @@
-.App {
-  height: 100vh;
-  background-image: url("./img/1148255.jpg");
+body {
+  background-image: url('./img/1148255.jpg');
   background-size: cover;
+  background-attachment: fixed;
+}
+
+.cardButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cardButton {
+  border-color: transparent;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 17px;
+  font-family: monospace;
+  color: white;
+}
+
+.cardButton:hover {
+  box-shadow: 0 3px 4px 0 rgba(255, 255, 255, 0.486);
 }
 
 .searchBarContainer {
-  text-align: right;
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 10px;
+  margin-bottom: 10px;
+  justify-content: space-around;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 4px 7px 0 rgb(0, 0, 0);
+  backdrop-filter: blur(20px);
+  height: 40px;
 }
 
 .Cards {
@@ -22,6 +52,7 @@
   font-family: "Cascadia Code";
   font-size: 15px;
   color: white;
+  border-radius: 10px;
   line-height: 8px;
   text-align: center;
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
