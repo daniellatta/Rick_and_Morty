@@ -12,7 +12,7 @@ export default function SearchBar({ onSearch }) {
       <input
         type="search"
         value={id}
-        placeholder="Ingresa un 'id'"
+        placeholder='Ingresa un "id"'
         onChange={handleChange}
       />
       <button

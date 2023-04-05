@@ -1,7 +1,9 @@
 import SearchBar from "./SearchBar";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
-const Nav = ({ onSearch }) => {
+const Nav = ({ onSearch, logout}) => {
+  const {pathname} = useLocation();
+  if (pathname === '/') return
   return (
     <div className="searchBarContainer">
       <button>
@@ -11,6 +13,7 @@ const Nav = ({ onSearch }) => {
         <NavLink to="/about">About</NavLink>
       </button>
       <SearchBar onSearch={onSearch} />
+      <button onClick={logout}>Logout</button>
     </div>
   );
 };
