@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import style from "./Card.module.css"
 
 const Card = ({
   id,
@@ -11,9 +12,9 @@ const Card = ({
   onClose,
 }) => {
   return (
-    <div className="Card">
-      <div className="cardButtonContainer">
-        <button onClick={() => {onClose(id)}}className="cardButton">x</button>
+    <div className={style.card}>
+      <div className={style.btnContainer}>
+        <button onClick={() => {onClose(id)}}className={style.button}>x</button>
       </div>
 
       <Link to={`/detail/${id}`}>

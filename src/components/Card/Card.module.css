@@ -1,0 +1,35 @@
+.card {
+  margin: 20px;
+  padding: 5px;
+  font-family: "Cascadia Code";
+  font-size: 15px;
+  color: white;
+  border-radius: 10px;
+  line-height: 8px;
+  text-align: center;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
+  text-shadow: 0 4px 3px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  border-color: transparent;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 17px;
+  font-family: monospace;
+  color: white;
+}
+
+.button:hover {
+  box-shadow: 0 3px 4px 0 rgba(255, 255, 255, 0.486);
+}

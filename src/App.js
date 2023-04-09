@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Cards from "./components/Cards.jsx";
-import Nav from "./components/Nav";
-import About from "./components/About";
-import Detail from "./components/Detail";
-import Error404 from "./components/Erro404";
-import Form from "./components/Form";
+import Cards from "./components/Cards/Cards.jsx";
+import Nav from "./components/Nav/Nav";
+import About from "./components/About/About";
+import Detail from "./components/Detail/Detail";
+import Error404 from "./components/Error404/Error404";
+import Form from "./components/Form/Form";
 
 const apiKey = "cfce4efb2049.ed84a866813de072a99f";
 const Url = "https://be-a-rym.up.railway.app/api/character/";
@@ -36,9 +36,8 @@ function App() {
   };
 
   const onClose = (id) => {
-    setCharacters(
-      characters.filter((character) => character.id !== parseInt(id, 10))
-    );
+    setCharacters(characters.filter((character) => character.id !== id));
+    setRequestedId(requestedId.filter((currentId) => currentId !== id));
   };
 
   const login = (userData) => {
@@ -49,12 +48,12 @@ function App() {
   };
 
   const logout = () => {
-    setAccess(false)
-  }
+    setAccess(false);
+  };
 
   useEffect(() => {
     !access && navigate("/");
-  }, [access]);
+  }, [access, navigate]);
 
   return (
     <div className="App">

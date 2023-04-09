@@ -1,14 +1,15 @@
 import { useState } from "react";
-import validate from "./validation";
+import validate from "../validation";
+import style from "./Form.module.css"
 
-const Form = ({login}) => {
+const Form = ({ login }) => {
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
   const [errors, setErrors] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
   const handleChange = (event) => {
@@ -20,15 +21,15 @@ const Form = ({login}) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    login(userData)
-  }
+    event.preventDefault();
+    login(userData);
+  };
 
   return (
-    <div className="formContainer">
-      <div className="form">
+    <div className={style.container}>
+      <div className={style.form}>
         <form>
-          <label htmlFor="" className="formLabel">
+          <label htmlFor="" className={style.label}>
             Email
           </label>
           <input
@@ -36,12 +37,12 @@ const Form = ({login}) => {
             name="email"
             value={userData.email}
             placeholder="Enter your email"
-            className="formInput"
+            className={style.input}
             onChange={handleChange}
           />
           {errors.email && <p>{errors.email}</p>}
 
-          <label htmlFor="" className="formLabel">
+          <label htmlFor="" className={style.label}>
             Password
           </label>
           <input
@@ -49,12 +50,12 @@ const Form = ({login}) => {
             name="password"
             value={userData.password}
             placeholder="Enter your password"
-            className="formInput"
+            className={style.input}
             onChange={handleChange}
           />
           {errors.password && <p>{errors.password}</p>}
 
-          <button className="submitButton" onClick={handleSubmit}>
+          <button className={style.button} onClick={handleSubmit}>
             Submit
           </button>
         </form>
