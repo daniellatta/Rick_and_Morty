@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
-import style from "./Card.module.css"
+import { Link, useLocation } from "react-router-dom";
+import style from "./Card.module.css";
+import { addFav, removeFav } from "../../redux/action";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Card = ({
   id,
@@ -11,10 +14,45 @@ const Card = ({
   image,
   onClose,
 }) => {
+  const [isFav, setIsFav] = useState(false);
+  const dispatch = useDispatch();
+  const { myFavorites } = useSelector((state) => state);
+  const { pathname } = useLocation();
+
+  const handleFavorite = () => {
+    if (isFav) {
+      setIsFav(false);
+      dispatch(removeFav(id));
+    } else {
+      setIsFav(true);
+      dispatch(addFav({ id, name, status, species, gender, origin, image }));
+    }
+  };
+
+  useEffect(() => {
+    myFavorites.forEach((fav) => {
+      if (fav.id === id) {
+        setIsFav(true);
+      }
+    });
+  }, [myFavorites]);
+
   return (
     <div className={style.card}>
       <div className={style.btnContainer}>
-        <button onClick={() => {onClose(id)}}className={style.button}>x</button>
+        <button onClick={handleFavorite} className={style.heart}>
+          {isFav ? "❤️" : "🤍"}
+        </button>
+        {pathname !== "/favorites" && (
+          <button
+            onClick={() => {
+              onClose(id);
+            }}
+            className={style.closeButton}
+          >
+            x
+          </button>
+        )}
       </div>
 
       <Link to={`/detail/${id}`}>
