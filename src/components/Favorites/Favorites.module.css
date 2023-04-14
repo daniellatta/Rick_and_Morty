@@ -1,7 +1,37 @@
-.container {
+.cardContainer {
   display: flex;
-  margin-top: 100px;
+  margin-top: 21px;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
+}
+
+.filters {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selector {
+  margin: 10px;
+  margin-top: 0;
+  padding: 5px;
+  width: 8rem;
+  border-radius: 8px;
+  background-color: transparent;
+  border-color: transparent;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+}
+
+select option {
+  background-color: rgba(0, 0, 0, 0.179);
+}
+
+.selector:hover {
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(255, 255, 255, 0.1),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.1),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.1);
 }

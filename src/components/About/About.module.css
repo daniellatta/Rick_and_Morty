@@ -1,0 +1,50 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  width: 400px;
+  cursor: pointer;
+  padding: 10px;
+  overflow: hidden;
+  height: 20px;
+  transition: all 0.7s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.808);
+}
+
+.expanded {
+  height: 500px; /* Altura máxima */
+  box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.808);
+}
+
+.header {
+  text-align: center;
+  margin-top: 0px;
+  font-size: 15px;
+  font-family: "Poppins";
+}
+
+.content {
+  font-size: 18px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.8s;
+}
+
+.expanded .content {
+  opacity: 1; /* Hace que el contenido se desvanezca */
+  transition: opacity 0.8s ease; /* Añade una transición de opacidad suave */
+}
+
+.expanded .content .header {
+  opacity: 0;
+}

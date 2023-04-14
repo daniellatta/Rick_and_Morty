@@ -1,24 +1,26 @@
 .card {
   margin: 20px;
-  padding: 5px;
+  padding: 10px;
   font-family: "Poppins";
   font-size: 13px;
   color: rgba(0, 0, 0, 0.804);
-  border-radius: 10px;
+  border-radius: 15px;
   line-height: 8px;
   text-align: center;
   box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.2);
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  transition: box-shadow 0.3s ease-in-out;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease-in-out;
 }
 
 .card:hover {
   box-shadow: 8px 8px 20px 0 rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+  backdrop-filter: blur(7px);
 }
 
 .card img {
-  border-radius: 10px;
+  border-radius: 18px;
 }
 
 .btnContainer {
