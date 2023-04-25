@@ -26,14 +26,16 @@ function App() {
       alert("Esta card ya se esta mostrando en pantalla");
       return;
     }
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-      if (data.name) {
-        setCharacters((oldChars) => [...oldChars, data]);
-        setRequestedId((oldIds) => [...oldIds, id]);
-      } else {
-        window.alert("¡No hay personajes con este ID!");
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+      ({ data }) => {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+          setRequestedId((oldIds) => [...oldIds, id]);
+        } else {
+          window.alert("¡No hay personajes con este ID!");
+        }
       }
-    });
+    );
   };
 
   const onClose = (id) => {
@@ -42,10 +44,13 @@ function App() {
   };
 
   const login = (userData) => {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAccess(true);
-      navigate("/home");
-    }
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    });
   };
 
   const logout = () => {
@@ -67,7 +72,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/favorites" element={<Favorites/>}/>
+          <Route path="/favorites" element={<Favorites />} />
           <Route path="/:error404" element={<Error404 />} />
           <Route path="/" element={<Form login={login} />} />
         </Routes>
